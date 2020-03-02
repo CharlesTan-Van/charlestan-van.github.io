@@ -302,17 +302,93 @@
       
         
           
-            <p>As a junior tech, recording the learning progress is meaningful.</p>
-<p>First, this chapter is as record and quick reference. More info, please <a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">https://daringfireball.net/projects/markdown/</a>.</p>
+            <p>As a tech, recording the learning progress is meaningful.</p>
+<p>Prenote, this article is as a record and quick reference. More info, please see <a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown Homepage</a>.</p>
 <h1 id="Header-Syntax"><a href="#Header-Syntax" class="headerlink" title="Header Syntax"></a>Header Syntax</h1><hr>
-<p>Number sign # at the beginning of a line represents header, you could use up to 6 # representing header 6.<br>Three hyphens under the header in source text make a line below the header in the showcase.</p>
-<h1 id="Header-1"><a href="#Header-1" class="headerlink" title="Header 1"></a>Header 1</h1><h2 id="Header-2"><a href="#Header-2" class="headerlink" title="Header 2"></a>Header 2</h2><h3 id="Header-3"><a href="#Header-3" class="headerlink" title="Header 3"></a>Header 3</h3><h4 id="Header-4"><a href="#Header-4" class="headerlink" title="Header 4"></a>Header 4</h4><h5 id="Header-5"><a href="#Header-5" class="headerlink" title="Header 5"></a>Header 5</h5><h6 id="Header-6"><a href="#Header-6" class="headerlink" title="Header 6"></a>Header 6</h6><p><img src="/Users/liuhuiyi/Desktop/1.png" alt="header syntax example"></p>
-<p>paragraph 1</p>
-<p><em>paragraph</em> 2</p>
-<p>Two ubderscores (one on left and one on right side of the text) make the text italicized.</p>
-<p><strong>paragraph</strong> 3</p>
-<p>Four ubderscores (two on left and two on right side of the text) make the text italicized.</p>
+<h2 id="Format"><a href="#Format" class="headerlink" title="Format"></a>Format</h2><p>Number sign # at the beginning of a line represents header, you could use up to 6 # representing header 6. </p>
+<!---
+Three hyphens under the header in source text make a line below the header in the showcase.
+--->
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Header 1</span><br><span class="line">## Header 2</span><br><span class="line">### Header 3</span><br><span class="line">#### Header 4</span><br><span class="line">##### Header 5</span><br><span class="line">###### Header 6</span><br></pre></td></tr></table></figure>
+<p>For example, the upper syntax will show in the website as the following case.</p>
+<h1 id="Header-1"><a href="#Header-1" class="headerlink" title="Header 1"></a>Header 1</h1><h2 id="Header-2"><a href="#Header-2" class="headerlink" title="Header 2"></a>Header 2</h2><h3 id="Header-3"><a href="#Header-3" class="headerlink" title="Header 3"></a>Header 3</h3><h4 id="Header-4"><a href="#Header-4" class="headerlink" title="Header 4"></a>Header 4</h4><h5 id="Header-5"><a href="#Header-5" class="headerlink" title="Header 5"></a>Header 5</h5><h6 id="Header-6"><a href="#Header-6" class="headerlink" title="Header 6"></a>Header 6</h6><h1 id="Emphasis-Syntax"><a href="#Emphasis-Syntax" class="headerlink" title="Emphasis Syntax"></a>Emphasis Syntax</h1><hr>
+<h2 id="Format-1"><a href="#Format-1" class="headerlink" title="Format"></a>Format</h2><p>Underscore sign _ can be used to emphasis the font format, like italicized, bold etc.<br>Two ubderscores (one on left and one on right side of the text) make the text italicized.<br>Four ubderscores (two on left and two on right side of the text) make the text italicized.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">paragraph 1</span><br><span class="line">_paragraph_ 2</span><br><span class="line">__paragraph__ 3</span><br><span class="line">__*paragraph*__ 4 or **_paragraph_** 4</span><br><span class="line">~~paragraph 5~~</span><br></pre></td></tr></table></figure>
+
+<p>For example, the upper syntax will show in the website as the following case.</p>
+<p>paragraph 1<br><em>paragraph</em> 2<br><strong>paragraph</strong> 3<br><strong><em>paragraph</em></strong> 4 or <strong><em>paragraph</em></strong> 4<br><del>paragraph 5</del></p>
 <p><strong>Note:</strong><br>In this case, underscore _ could be replaced by asterisk *.</p>
+<h1 id="List-Syntax"><a href="#List-Syntax" class="headerlink" title="List Syntax"></a>List Syntax</h1><hr>
+<h2 id="Format-2"><a href="#Format-2" class="headerlink" title="Format"></a>Format</h2><p>Ordered list begins with #. (e.g. 1. 2. …), unordered list begins with * (e.g. * subpoints), - also works here.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. Apples</span><br><span class="line">  * i Mac</span><br><span class="line">  * ipad</span><br><span class="line">  * Brazil Organic Apple</span><br><span class="line">2. Oranges</span><br><span class="line">3. Pears</span><br><span class="line">  - Mars pears</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>Apples<ul>
+<li>i Mac</li>
+<li>ipad</li>
+<li>Brazil Organic Apple</li>
+</ul>
+</li>
+<li>Oranges</li>
+<li>Pears<ul>
+<li>Mars pears</li>
+</ul>
+</li>
+</ol>
+<h1 id="Links-Syntax"><a href="#Links-Syntax" class="headerlink" title="Links Syntax"></a>Links Syntax</h1><hr>
+<h2 id="Format-3"><a href="#Format-3" class="headerlink" title="Format"></a>Format</h2><p>[link title](link address “link title”) </p>
+<p>In the brackets, you could put the title of the link; </p>
+<p>In the parentheses, you could put the actual with/without the title in the quotes.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Google&#39;s Homepage](https:&#x2F;&#x2F;www.google.com)</span><br><span class="line">[Google&#39;s Homepage](https:&#x2F;&#x2F;www.google.com &quot;Google&#39;s Homepage&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.google.com" target="_blank" rel="noopener">Google’s Homepage</a><br><a href="https://www.google.com" target="_blank" rel="noopener" title="Google&#39;s Homepage">Google’s Homepage</a></p>
+<h1 id="Images-Syntax"><a href="#Images-Syntax" class="headerlink" title="Images Syntax"></a>Images Syntax</h1><hr>
+<h2 id="Format-4"><a href="#Format-4" class="headerlink" title="Format"></a>Format</h2><p>![optional text](picture link “optional title”)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![Waterfall](https:&#x2F;&#x2F;cdn.pixabay.com&#x2F;photo&#x2F;2017&#x2F;08&#x2F;07&#x2F;23&#x2F;11&#x2F;iceland-2608985_1280.jpg </span><br><span class="line">	&quot;Seljalandsfoss Waterfall&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.pixabay.com/photo/2017/08/07/23/11/iceland-2608985_1280.jpg" alt="Waterfall" title="Seljalandsfoss Waterfall"></p>
+<h1 id="Code-and-Syntax-Highlighting"><a href="#Code-and-Syntax-Highlighting" class="headerlink" title="Code and Syntax Highlighting"></a>Code and Syntax Highlighting</h1><hr>
+<h2 id="Code-Block-Format"><a href="#Code-Block-Format" class="headerlink" title="Code Block Format"></a>Code Block Format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">&#123;</span><br><span class="line">	Put your text between the three back-ticks.</span><br><span class="line">	You do not need to indent any lines!</span><br><span class="line">	Really cooloooo</span><br><span class="line">&#125;</span><br><span class="line">&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	Put your text between the three back-ticks.</span><br><span class="line">	You do not need to indent any lines!</span><br><span class="line">	Really cooloooo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~~~</span><br><span class="line">&#123;</span><br><span class="line">	The same function as above!</span><br><span class="line">&#125;</span><br><span class="line">~~~</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	The same function as above!</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Syntax-Hightlighting-Format"><a href="#Syntax-Hightlighting-Format" class="headerlink" title="Syntax Hightlighting Format"></a>Syntax Hightlighting Format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96; Language name</span><br><span class="line">text</span><br><span class="line">&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+
+<p>Specify a language name after the three back-ticks, it will automatically highlight your fenced code block.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">```java</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">boolean</span> syntax = <span class="keyword">true</span>;</span><br><span class="line">	String version = <span class="string">"V1.0"</span>;</span><br><span class="line">	<span class="keyword">int</span> developCircle = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="keyword">boolean</span> syntax = <span class="keyword">true</span>;</span><br><span class="line">	String version = <span class="string">"V1.0"</span>;</span><br><span class="line">	<span class="keyword">int</span> developCircle = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h1><hr>
+<h2 id="Format-5"><a href="#Format-5" class="headerlink" title="Format"></a>Format</h2><h1 id="Blockquotes"><a href="#Blockquotes" class="headerlink" title="Blockquotes"></a>Blockquotes</h1><hr>
+<h2 id="Format-6"><a href="#Format-6" class="headerlink" title="Format"></a>Format</h2><blockquote>
+<p>Blockquotes<br>Blockquotes</p>
+</blockquote>
+<p>Quote break</p>
+<blockquote>
+<p>Blockquotes<br>Blockquotes</p>
+</blockquote>
+<p>You can write a long quote part after blockquotes.</p>
+<h1 id="Inline-HTML"><a href="#Inline-HTML" class="headerlink" title="Inline HTML"></a>Inline HTML</h1><hr>
+<h2 id="Format-7"><a href="#Format-7" class="headerlink" title="Format"></a>Format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;tag&gt;</span><br><span class="line">	&lt;tag&gt;Type content here!&lt;&#x2F;tag&gt;</span><br><span class="line">&lt;&#x2F;tag&gt;</span><br></pre></td></tr></table></figure>
+
+<tag>
+    <tag>Type content here!</tag>
+</tag>
+
+<h1 id="Horizontal-Rule"><a href="#Horizontal-Rule" class="headerlink" title="Horizontal Rule"></a>Horizontal Rule</h1><hr>
+<h2 id="Format-8"><a href="#Format-8" class="headerlink" title="Format"></a>Format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">or</span><br><span class="line">___</span><br></pre></td></tr></table></figure>
+
+<p>At least three asterisks</p>
+<hr>
+<p>or underscores</p>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1]<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code" target="_blank" rel="noopener">Markdown Cheatsheet</a><br>[2]<a href="https://www.markdownguide.org/extended-syntax/" target="_blank" rel="noopener">Extended Syntax</a></p>
 
           
         
