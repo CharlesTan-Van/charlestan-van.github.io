@@ -231,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Docker_Note/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/ARP%20Spoofing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chaoli Tan">
@@ -250,7 +250,140 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/07/Docker_Note/" itemprop="url">Docker_Note</a></h1>
+                <a class="post-title-link" href="/2020/03/19/ARP%20Spoofing/" itemprop="url">ARP Spoofing</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-19T16:39:24-07:00">
+                2020-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ARP-Spoofing"><a href="#ARP-Spoofing" class="headerlink" title="ARP Spoofing"></a>ARP Spoofing</h1><h2 id="System-requirements"><a href="#System-requirements" class="headerlink" title="System requirements"></a>System requirements</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 19.10</span><br><span class="line">Release:	19.10</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ProductName:  Mac OS X</span><br><span class="line">ProductVersion:  10.14.6</span><br><span class="line">BuildVersion:  18G3020</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Install dsniff on Ubuntu<ul>
+<li>sudo apt install dsniff</li>
+</ul>
+</li>
+<li>Wireshark on Mac OS<h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2>Open terminal on Mac OS, type arp -a</li>
+</ul>
+<p>Check your arp cache table, your router ip and mac address will be there.</p>
+<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>Open terminal on Ubuntu, type arp -t targethost_ip_address router_ip_address</p>
+<p>Then it will start poison the target’s arp cache.</p>
+<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>Back to Mac OS, type arp -a, you will see the router mac address changed to the Ubuntu’s mac address, while the ip address remains the same.<br><img src="https://drive.google.com/file/d/1uZsrliBel68KBf4Gi3jLRa9kl2N3GPIv/view?usp=sharing" alt="enter image description here"></p>
+<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><p>Back to Ubuntu, cancel the command, everything will restore.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Docker%20Note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chaoli Tan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChaoliTan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/07/Docker%20Note/" itemprop="url">Docker Note</a></h1>
         
 
         <div class="post-meta">
@@ -1023,7 +1156,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
