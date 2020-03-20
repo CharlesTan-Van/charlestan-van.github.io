@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="PostgreSQL What is a Database  Store Manipulate Retrieve  SQL and Relational What is PostgreSQL Postgres is the database Structured Query Language  SQL is a programming language SELECT first_name(COLU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostgreSQL Study Note">
+<meta property="og:url" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/index.html">
+<meta property="og:site_name" content="ChaoliTan&#39;s Blog">
+<meta property="og:description" content="PostgreSQL What is a Database  Store Manipulate Retrieve  SQL and Relational What is PostgreSQL Postgres is the database Structured Query Language  SQL is a programming language SELECT first_name(COLU">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/CreateDatabase.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/CreateTable.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/ShowAllTables.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/ShowSpecificTable.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/CreateTableWithConstraints.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/ShowAllTablesWithConstraints.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/Insert1.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/RetrievingData.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/1000records.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/Show1000records.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/SortById&Email.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/DuplicateKeyword.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/DistinctKeyword.png">
+<meta property="article:published_time" content="2020-03-20T16:55:38.059Z">
+<meta property="article:modified_time" content="2020-03-20T23:17:08.838Z">
+<meta property="article:author" content="Chaoli Tan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/CreateDatabase.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/20/PostgreSQL Study Note/"/>
+
+
+
+
+
+  <title>PostgreSQL Study Note | ChaoliTan's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ChaoliTan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Record tech life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chaoli Tan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChaoliTan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PostgreSQL Study Note</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-20T09:55:38-07:00">
+                2020-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="PostgreSQL"><a href="#PostgreSQL" class="headerlink" title="PostgreSQL"></a>PostgreSQL</h1><hr>
+<h2 id="What-is-a-Database"><a href="#What-is-a-Database" class="headerlink" title="What is a Database"></a>What is a Database</h2><hr>
+<ul>
+<li>Store</li>
+<li>Manipulate</li>
+<li>Retrieve</li>
+</ul>
+<h2 id="SQL-and-Relational"><a href="#SQL-and-Relational" class="headerlink" title="SQL and Relational"></a>SQL and Relational</h2><hr>
+<h3 id="What-is-PostgreSQL"><a href="#What-is-PostgreSQL" class="headerlink" title="What is PostgreSQL"></a>What is PostgreSQL</h3><ul>
+<li>Postgres is the database</li>
+<li><strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage</li>
+</ul>
+<h3 id="SQL-is-a-programming-language"><a href="#SQL-is-a-programming-language" class="headerlink" title="SQL is a programming language"></a><strong>SQL</strong> is a programming language</h3><ul>
+<li><strong>SELECT</strong> first_name(<strong>COLUMN NAME</strong>) <strong>FROM</strong> person(<strong>TABLE NAME</strong>)</li>
+<li>Manage data held in a <strong>relational</strong> database</li>
+<li>Easy to learn</li>
+<li>Very powerful</li>
+<li>1974</li>
+<li>Used all over the internet</li>
+</ul>
+<h3 id="How-data-is-stored"><a href="#How-data-is-stored" class="headerlink" title="How data is stored"></a>How data is stored</h3><ul>
+<li>Stores in tables</li>
+<li>Columns</li>
+<li>Rows</li>
+</ul>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><hr>
+<h3 id="Download-Postgres-MAC-OS"><a href="#Download-Postgres-MAC-OS" class="headerlink" title="Download Postgres (MAC OS)"></a>Download Postgres (MAC OS)</h3><p><a href="https://postgresapp.com/downloads.html" target="_blank" rel="noopener">Postgres.app Additional Releases</a></p>
+<h3 id="GUI-Client-vs-Terminal-CMD-Client"><a href="#GUI-Client-vs-Terminal-CMD-Client" class="headerlink" title="GUI Client vs Terminal/CMD Client"></a>GUI Client vs Terminal/CMD Client</h3><ul>
+<li>Connecting to DB server</li>
+<li>Connect using client<ul>
+<li>GUI Client<ul>
+<li>DataGrip (Paid application)</li>
+<li>Postico (Free application)</li>
+</ul>
+</li>
+<li>Terminal / CMD</li>
+<li>Application</li>
+</ul>
+</li>
+</ul>
+<h3 id="Set-PSQL-MAC-OS"><a href="#Set-PSQL-MAC-OS" class="headerlink" title="Set PSQL (MAC OS)"></a>Set PSQL (MAC OS)</h3><ul>
+<li>brew cask install iterm2    (Not must required, coule use Terminal.app instead)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* cd ~</span><br><span class="line">* vi .bash_profile</span><br><span class="line">* export PATH&#x3D;$PATH:&#x2F;Applications&#x2F;Postgres.app&#x2F;Contents&#x2F;Versions&#x2F;12&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="Creating-Database"><a href="#Creating-Database" class="headerlink" title="Creating Database"></a>Creating Database</h2><hr>
+<h3 id="Creating-a-database"><a href="#Creating-a-database" class="headerlink" title="Creating a database"></a>Creating a database</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE test;</span><br><span class="line">\l</span><br></pre></td></tr></table></figure>
+<p><img src="CreateDatabase.png" alt=""></p>
+<h3 id="Connecting-to-database"><a href="#Connecting-to-database" class="headerlink" title="Connecting to database"></a>Connecting to database</h3><!-- "ctr + l" clear the terminal screen -->
+<ol>
+<li>Method 1<ul>
+<li>psql -h localhost -p 5432 -U username database_name</li>
+</ul>
+</li>
+<li>Method 2<ul>
+<li>psql         <!-- enter PostgreSQL --></li>
+<li>\l         <!-- list all database --></li>
+<li>\c test     <!-- "c" means connect --></li>
+</ul>
+</li>
+</ol>
+<h3 id="A-very-dangerous-command"><a href="#A-very-dangerous-command" class="headerlink" title="A very dangerous command"></a>A very dangerous command</h3><ul>
+<li>DROP DATABASE test;</li>
+</ul>
+<h2 id="Creating-Tables"><a href="#Creating-Tables" class="headerlink" title="Creating Tables"></a>Creating Tables</h2><hr>
+<h3 id="Create-Table-Syntax-amp-Datatypes"><a href="#Create-Table-Syntax-amp-Datatypes" class="headerlink" title="Create Table Syntax &amp; Datatypes"></a>Create Table Syntax &amp; Datatypes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name (</span><br><span class="line">	Column name + data type + constraints if any</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person (</span><br><span class="line">	id INT,</span><br><span class="line">	first_name VARCHAR(50),</span><br><span class="line">	last_name VARCHAR(50),</span><br><span class="line">	gender VARCHAR(6),</span><br><span class="line">	date_of_birth TIMESTAMP );</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.postgresql.org/docs/9.5/datatype.html" target="_blank" rel="noopener">PostgreSQL Data Types</a></p>
+<h3 id="Create-Table-without-Constraints"><a href="#Create-Table-without-Constraints" class="headerlink" title="Create Table without Constraints"></a>Create Table without Constraints</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person (</span><br><span class="line">	id INT,</span><br><span class="line">	first_name VARCHAR(50),</span><br><span class="line">	last_name VARCHAR(50),</span><br><span class="line">	gender VARCHAR(6),</span><br><span class="line">	date_of_birth DATE );</span><br></pre></td></tr></table></figure>
+<p><img src="CreateTable.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d</span><br></pre></td></tr></table></figure>
+<p><img src="ShowAllTables.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d person</span><br></pre></td></tr></table></figure>
+<p><img src="ShowSpecificTable.png" alt=""></p>
+<h3 id="Create-Table-with-Constraints"><a href="#Create-Table-with-Constraints" class="headerlink" title="Create Table with Constraints"></a>Create Table with Constraints</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person (</span><br><span class="line">	id BIGSERIAL NOT NULL PRIMARY KEY,</span><br><span class="line">	first_name VARCHAR(50) NOT NULL,</span><br><span class="line">	last_name VARCHAR(50) NOT NULL,</span><br><span class="line">	gender VARCHAR(6) NOT NULL,</span><br><span class="line">	date_of_birth DATE NOT NUL,</span><br><span class="line">	email VARCHAR(150)) );</span><br></pre></td></tr></table></figure>
+<p><img src="CreateTableWithConstraints.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d person</span><br></pre></td></tr></table></figure>
+<p><img src="ShowAllTablesWithConstraints.png" alt=""></p>
+<h2 id="Inserting-amp-Querying-Data"><a href="#Inserting-amp-Querying-Data" class="headerlink" title="Inserting &amp; Querying Data"></a>Inserting &amp; Querying Data</h2><hr>
+<h3 id="How-to-insert"><a href="#How-to-insert" class="headerlink" title="How to insert"></a>How to insert</h3><ul>
+<li>How to insert records into tables<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO person (</span><br><span class="line">	first_name,</span><br><span class="line">	last_name,</span><br><span class="line">	gender,</span><br><span class="line">	date_of_birth)</span><br><span class="line">VALUES (&#39;Anne&#39;, &#39;Smith&#39;, &#39;FEMALE&#39;, DATE &#39;1988-01-09&#39;);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="Inserting-Data"><a href="#Inserting-Data" class="headerlink" title="Inserting Data"></a>Inserting Data</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO person (</span><br><span class="line">	first_name,</span><br><span class="line">	last_name,</span><br><span class="line">	gender,</span><br><span class="line">	date_of_birth)</span><br><span class="line">VALUES (&#39;Anne&#39;, &#39;Smith&#39;, &#39;FEMALE&#39;, DATE &#39;1988-01-09&#39;);</span><br></pre></td></tr></table></figure>
+<p><img src="Insert1.png" alt=""></p>
+<h3 id="Retrieving-Data"><a href="#Retrieving-Data" class="headerlink" title="Retrieving Data"></a>Retrieving Data</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM person;</span><br></pre></td></tr></table></figure>
+<p><img src="RetrievingData.png" alt=""></p>
+<h3 id="Adding-One-Thousand-Records"><a href="#Adding-One-Thousand-Records" class="headerlink" title="Adding One Thousand Records"></a>Adding One Thousand Records</h3><ul>
+<li>Generate 1000 records from <a href="https://www.mockaroo.com/" target="_blank" rel="noopener">Mockaroo</a><br><img src="1000records.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\i &#x2F;Users&#x2F;liuhuiyi&#x2F;downloads&#x2F;person.sql</span><br><span class="line">SELECT * FROM person</span><br></pre></td></tr></table></figure>
+<img src="Show1000records.png" alt=""></li>
+</ul>
+<h3 id="Sorting-Data"><a href="#Sorting-Data" class="headerlink" title="Sorting Data"></a>Sorting Data</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM person ORDER BY country_of_birth;</span><br><span class="line">SELECT * FROM person ORDER BY country_of_birth ASC;</span><br><span class="line">SELECT * FROM person ORDER BY country_of_birth DESC;</span><br><span class="line"></span><br><span class="line">SELECT * FROM person ORDER BY id, email;</span><br><span class="line">SELECT * FROM person ORDER BY id ASC, email DESC;</span><br></pre></td></tr></table></figure>
+<p><img src="SortById&Email.png" alt=""></p>
+<h3 id="Distinct-keyword"><a href="#Distinct-keyword" class="headerlink" title="Distinct keyword"></a>Distinct keyword</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT country_of_birth FROM person ORDER BY country_of_birth ASC;</span><br></pre></td></tr></table></figure>
+<p><img src="DuplicateKeyword.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth ASC;</span><br></pre></td></tr></table></figure>
+<p><img src="DistinctKeyword.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/19/ARP%20Spoofing/" rel="next" title="ARP Spoofing">
+                <i class="fa fa-chevron-left"></i> ARP Spoofing
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Chaoli Tan</p>
+              <p class="site-description motion-element" itemprop="description">Tech Drives Life</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PostgreSQL"><span class="nav-number">1.</span> <span class="nav-text">PostgreSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-Database"><span class="nav-number">1.1.</span> <span class="nav-text">What is a Database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-and-Relational"><span class="nav-number">1.2.</span> <span class="nav-text">SQL and Relational</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-PostgreSQL"><span class="nav-number">1.2.1.</span> <span class="nav-text">What is PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-is-a-programming-language"><span class="nav-number">1.2.2.</span> <span class="nav-text">SQL is a programming language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-data-is-stored"><span class="nav-number">1.2.3.</span> <span class="nav-text">How data is stored</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup"><span class="nav-number">1.3.</span> <span class="nav-text">Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Download-Postgres-MAC-OS"><span class="nav-number">1.3.1.</span> <span class="nav-text">Download Postgres (MAC OS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GUI-Client-vs-Terminal-CMD-Client"><span class="nav-number">1.3.2.</span> <span class="nav-text">GUI Client vs Terminal&#x2F;CMD Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-PSQL-MAC-OS"><span class="nav-number">1.3.3.</span> <span class="nav-text">Set PSQL (MAC OS)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-Database"><span class="nav-number">1.4.</span> <span class="nav-text">Creating Database</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-a-database"><span class="nav-number">1.4.1.</span> <span class="nav-text">Creating a database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connecting-to-database"><span class="nav-number">1.4.2.</span> <span class="nav-text">Connecting to database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-very-dangerous-command"><span class="nav-number">1.4.3.</span> <span class="nav-text">A very dangerous command</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-Tables"><span class="nav-number">1.5.</span> <span class="nav-text">Creating Tables</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-Table-Syntax-amp-Datatypes"><span class="nav-number">1.5.1.</span> <span class="nav-text">Create Table Syntax &amp; Datatypes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-Table-without-Constraints"><span class="nav-number">1.5.2.</span> <span class="nav-text">Create Table without Constraints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-Table-with-Constraints"><span class="nav-number">1.5.3.</span> <span class="nav-text">Create Table with Constraints</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inserting-amp-Querying-Data"><span class="nav-number">1.6.</span> <span class="nav-text">Inserting &amp; Querying Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-insert"><span class="nav-number">1.6.1.</span> <span class="nav-text">How to insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inserting-Data"><span class="nav-number">1.6.2.</span> <span class="nav-text">Inserting Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Retrieving-Data"><span class="nav-number">1.6.3.</span> <span class="nav-text">Retrieving Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adding-One-Thousand-Records"><span class="nav-number">1.6.4.</span> <span class="nav-text">Adding One Thousand Records</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sorting-Data"><span class="nav-number">1.6.5.</span> <span class="nav-text">Sorting Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Distinct-keyword"><span class="nav-number">1.6.6.</span> <span class="nav-text">Distinct keyword</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chaoli Tan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

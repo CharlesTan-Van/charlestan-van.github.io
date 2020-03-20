@@ -231,6 +231,225 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/20/PostgreSQL%20Study%20Note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chaoli Tan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChaoliTan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/20/PostgreSQL%20Study%20Note/" itemprop="url">PostgreSQL Study Note</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-20T09:55:38-07:00">
+                2020-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="PostgreSQL"><a href="#PostgreSQL" class="headerlink" title="PostgreSQL"></a>PostgreSQL</h1><hr>
+<h2 id="What-is-a-Database"><a href="#What-is-a-Database" class="headerlink" title="What is a Database"></a>What is a Database</h2><hr>
+<ul>
+<li>Store</li>
+<li>Manipulate</li>
+<li>Retrieve</li>
+</ul>
+<h2 id="SQL-and-Relational"><a href="#SQL-and-Relational" class="headerlink" title="SQL and Relational"></a>SQL and Relational</h2><hr>
+<h3 id="What-is-PostgreSQL"><a href="#What-is-PostgreSQL" class="headerlink" title="What is PostgreSQL"></a>What is PostgreSQL</h3><ul>
+<li>Postgres is the database</li>
+<li><strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage</li>
+</ul>
+<h3 id="SQL-is-a-programming-language"><a href="#SQL-is-a-programming-language" class="headerlink" title="SQL is a programming language"></a><strong>SQL</strong> is a programming language</h3><ul>
+<li><strong>SELECT</strong> first_name(<strong>COLUMN NAME</strong>) <strong>FROM</strong> person(<strong>TABLE NAME</strong>)</li>
+<li>Manage data held in a <strong>relational</strong> database</li>
+<li>Easy to learn</li>
+<li>Very powerful</li>
+<li>1974</li>
+<li>Used all over the internet</li>
+</ul>
+<h3 id="How-data-is-stored"><a href="#How-data-is-stored" class="headerlink" title="How data is stored"></a>How data is stored</h3><ul>
+<li>Stores in tables</li>
+<li>Columns</li>
+<li>Rows</li>
+</ul>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><hr>
+<h3 id="Download-Postgres-MAC-OS"><a href="#Download-Postgres-MAC-OS" class="headerlink" title="Download Postgres (MAC OS)"></a>Download Postgres (MAC OS)</h3><p><a href="https://postgresapp.com/downloads.html" target="_blank" rel="noopener">Postgres.app Additional Releases</a></p>
+<h3 id="GUI-Client-vs-Terminal-CMD-Client"><a href="#GUI-Client-vs-Terminal-CMD-Client" class="headerlink" title="GUI Client vs Terminal/CMD Client"></a>GUI Client vs Terminal/CMD Client</h3><ul>
+<li>Connecting to DB server</li>
+<li>Connect using client<ul>
+<li>GUI Client<ul>
+<li>DataGrip (Paid application)</li>
+<li>Postico (Free application)</li>
+</ul>
+</li>
+<li>Terminal / CMD</li>
+<li>Application</li>
+</ul>
+</li>
+</ul>
+<h3 id="Set-PSQL-MAC-OS"><a href="#Set-PSQL-MAC-OS" class="headerlink" title="Set PSQL (MAC OS)"></a>Set PSQL (MAC OS)</h3><ul>
+<li>brew cask install iterm2    (Not must required, coule use Terminal.app instead)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* cd ~</span><br><span class="line">* vi .bash_profile</span><br><span class="line">* export PATH&#x3D;$PATH:&#x2F;Applications&#x2F;Postgres.app&#x2F;Contents&#x2F;Versions&#x2F;12&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="Creating-Database"><a href="#Creating-Database" class="headerlink" title="Creating Database"></a>Creating Database</h2><hr>
+<h3 id="Creating-a-database"><a href="#Creating-a-database" class="headerlink" title="Creating a database"></a>Creating a database</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE test;</span><br><span class="line">\l</span><br></pre></td></tr></table></figure>
+<p><img src="CreateDatabase.png" alt=""></p>
+<h3 id="Connecting-to-database"><a href="#Connecting-to-database" class="headerlink" title="Connecting to database"></a>Connecting to database</h3><!-- "ctr + l" clear the terminal screen -->
+<ol>
+<li>Method 1<ul>
+<li>psql -h localhost -p 5432 -U username database_name</li>
+</ul>
+</li>
+<li>Method 2<ul>
+<li>psql         <!-- enter PostgreSQL --></li>
+<li>\l         <!-- list all database --></li>
+<li>\c test     <!-- "c" means connect --></li>
+</ul>
+</li>
+</ol>
+<h3 id="A-very-dangerous-command"><a href="#A-very-dangerous-command" class="headerlink" title="A very dangerous command"></a>A very dangerous command</h3><ul>
+<li>DROP DATABASE test;</li>
+</ul>
+<h2 id="Creating-Tables"><a href="#Creating-Tables" class="headerlink" title="Creating Tables"></a>Creating Tables</h2><hr>
+<h3 id="Create-Table-Syntax-amp-Datatypes"><a href="#Create-Table-Syntax-amp-Datatypes" class="headerlink" title="Create Table Syntax &amp; Datatypes"></a>Create Table Syntax &amp; Datatypes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name (</span><br><span class="line">	Column name + data type + constraints if any</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person (</span><br><span class="line">	id INT,</span><br><span class="line">	first_name VARCHAR(50),</span><br><span class="line">	last_name VARCHAR(50),</span><br><span class="line">	gender VARCHAR(6),</span><br><span class="line">	date_of_birth TIMESTAMP );</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.postgresql.org/docs/9.5/datatype.html" target="_blank" rel="noopener">PostgreSQL Data Types</a></p>
+<h3 id="Create-Table-without-Constraints"><a href="#Create-Table-without-Constraints" class="headerlink" title="Create Table without Constraints"></a>Create Table without Constraints</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person (</span><br><span class="line">	id INT,</span><br><span class="line">	first_name VARCHAR(50),</span><br><span class="line">	last_name VARCHAR(50),</span><br><span class="line">	gender VARCHAR(6),</span><br><span class="line">	date_of_birth DATE );</span><br></pre></td></tr></table></figure>
+<p><img src="CreateTable.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d</span><br></pre></td></tr></table></figure>
+<p><img src="ShowAllTables.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d person</span><br></pre></td></tr></table></figure>
+<p><img src="ShowSpecificTable.png" alt=""></p>
+<h3 id="Create-Table-with-Constraints"><a href="#Create-Table-with-Constraints" class="headerlink" title="Create Table with Constraints"></a>Create Table with Constraints</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person (</span><br><span class="line">	id BIGSERIAL NOT NULL PRIMARY KEY,</span><br><span class="line">	first_name VARCHAR(50) NOT NULL,</span><br><span class="line">	last_name VARCHAR(50) NOT NULL,</span><br><span class="line">	gender VARCHAR(6) NOT NULL,</span><br><span class="line">	date_of_birth DATE NOT NUL,</span><br><span class="line">	email VARCHAR(150)) );</span><br></pre></td></tr></table></figure>
+<p><img src="CreateTableWithConstraints.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d person</span><br></pre></td></tr></table></figure>
+<p><img src="ShowAllTablesWithConstraints.png" alt=""></p>
+<h2 id="Inserting-amp-Querying-Data"><a href="#Inserting-amp-Querying-Data" class="headerlink" title="Inserting &amp; Querying Data"></a>Inserting &amp; Querying Data</h2><hr>
+<h3 id="How-to-insert"><a href="#How-to-insert" class="headerlink" title="How to insert"></a>How to insert</h3><ul>
+<li>How to insert records into tables<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO person (</span><br><span class="line">	first_name,</span><br><span class="line">	last_name,</span><br><span class="line">	gender,</span><br><span class="line">	date_of_birth)</span><br><span class="line">VALUES (&#39;Anne&#39;, &#39;Smith&#39;, &#39;FEMALE&#39;, DATE &#39;1988-01-09&#39;);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="Inserting-Data"><a href="#Inserting-Data" class="headerlink" title="Inserting Data"></a>Inserting Data</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO person (</span><br><span class="line">	first_name,</span><br><span class="line">	last_name,</span><br><span class="line">	gender,</span><br><span class="line">	date_of_birth)</span><br><span class="line">VALUES (&#39;Anne&#39;, &#39;Smith&#39;, &#39;FEMALE&#39;, DATE &#39;1988-01-09&#39;);</span><br></pre></td></tr></table></figure>
+<p><img src="Insert1.png" alt=""></p>
+<h3 id="Retrieving-Data"><a href="#Retrieving-Data" class="headerlink" title="Retrieving Data"></a>Retrieving Data</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM person;</span><br></pre></td></tr></table></figure>
+<p><img src="RetrievingData.png" alt=""></p>
+<h3 id="Adding-One-Thousand-Records"><a href="#Adding-One-Thousand-Records" class="headerlink" title="Adding One Thousand Records"></a>Adding One Thousand Records</h3><ul>
+<li>Generate 1000 records from <a href="https://www.mockaroo.com/" target="_blank" rel="noopener">Mockaroo</a><br><img src="1000records.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\i &#x2F;Users&#x2F;liuhuiyi&#x2F;downloads&#x2F;person.sql</span><br><span class="line">SELECT * FROM person</span><br></pre></td></tr></table></figure>
+<img src="Show1000records.png" alt=""></li>
+</ul>
+<h3 id="Sorting-Data"><a href="#Sorting-Data" class="headerlink" title="Sorting Data"></a>Sorting Data</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM person ORDER BY country_of_birth;</span><br><span class="line">SELECT * FROM person ORDER BY country_of_birth ASC;</span><br><span class="line">SELECT * FROM person ORDER BY country_of_birth DESC;</span><br><span class="line"></span><br><span class="line">SELECT * FROM person ORDER BY id, email;</span><br><span class="line">SELECT * FROM person ORDER BY id ASC, email DESC;</span><br></pre></td></tr></table></figure>
+<p><img src="SortById&Email.png" alt=""></p>
+<h3 id="Distinct-keyword"><a href="#Distinct-keyword" class="headerlink" title="Distinct keyword"></a>Distinct keyword</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT country_of_birth FROM person ORDER BY country_of_birth ASC;</span><br></pre></td></tr></table></figure>
+<p><img src="DuplicateKeyword.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth ASC;</span><br></pre></td></tr></table></figure>
+<p><img src="DistinctKeyword.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/ARP%20Spoofing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1161,7 +1380,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
